@@ -156,7 +156,7 @@ The proposed AdaMOIC framework was evaluated on multiple TCGA cancer datasets.
 B.Tech CSE, IIIT Sri City
 
 **T.Manoj**
-B.Tech CSE,IIIT Sri City
+B.Tech CSE, IIIT Sri City
 
 ---
 
