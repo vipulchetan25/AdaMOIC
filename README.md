@@ -1,168 +1,155 @@
-AdaMOIC: Adaptive Multi-Omics Integration for Cancer Subtype Classification
-Overview
+# AdaMOIC
+### Adaptive Multi-Omics Integration for Cancer Subtype Classification
 
-AdaMOIC is a deep learning framework for cancer subtype classification using multi-omics data. The model integrates mRNA, CNV, and RPPA omics modalities through adaptive feature fusion and graph-based learning to capture complex biological relationships among cancer patients.
+## Overview
 
-This work is inspired by the DeepMoIC framework and introduces several improvements, including adaptive fusion mechanisms, enhanced graph representation learning, and robust subtype discrimination.
+AdaMOIC is a deep learning framework for cancer subtype classification using multi-omics data. The model integrates **mRNA**, **CNV**, and **RPPA** omics modalities through adaptive feature fusion and graph-based learning to capture complex biological relationships among cancer patients.
 
-Key Features
-Multi-omics integration of:
-mRNA Expression Data
-Copy Number Variation (CNV)
-Reverse Phase Protein Array (RPPA)
-Autoencoder-based feature extraction for each omics modality.
-Adaptive latent feature fusion using attention-based integration.
-Patient Similarity Network (PSN) construction using K-Nearest Neighbors and cosine similarity.
-Graph Neural Network-based classification.
-Prototype-based classifier for improved subtype discrimination.
-Supervised Contrastive Learning for enhanced representation quality.
-Probability calibration and subtype refinement strategies.
-Dataset
+This work is inspired by the DeepMoIC framework and introduces improvements including adaptive fusion mechanisms, enhanced graph representation learning, and robust subtype discrimination.
 
-The framework is evaluated on TCGA cancer datasets:
+---
 
-Dataset	Description
-BRCA	Breast Invasive Carcinoma
-LGG	Lower Grade Glioma
-KIPAN	Kidney Pan-Cancer Dataset
-Omics Data Used
-mRNA Expression
-CNV
-RPPA
+## Key Features
 
-All datasets are preprocessed using normalization and feature selection techniques before model training.
+- Multi-omics integration
+  - mRNA Expression
+  - Copy Number Variation (CNV)
+  - Reverse Phase Protein Array (RPPA)
 
-Methodology
-1. Multi-Omics Feature Extraction
+- Autoencoder-based feature extraction
+- Attention-based latent feature fusion
+- Patient Similarity Network (PSN) construction
+- Graph Neural Network (GNN) based classification
+- Prototype-based classifier
+- Supervised Contrastive Learning
+- Probability calibration and subtype refinement
 
-Each omics modality is processed using an independent Autoencoder:
+---
 
-Encoder
-Latent Representation
-Decoder
+## Datasets
 
-The latent embeddings are learned separately for:
+The framework is evaluated on TCGA cancer datasets.
 
-mRNA
-CNV
-RPPA
-2. Adaptive Fusion
+| Dataset | Description |
+|----------|------------|
+| BRCA | Breast Invasive Carcinoma |
+| LGG | Lower Grade Glioma |
+| KIPAN | Kidney Pan-Cancer |
 
-Latent representations are fused using an attention-based fusion mechanism to generate a unified patient representation.
+### Omics Data Used
 
-3. Patient Similarity Network
+- mRNA Expression
+- CNV
+- RPPA
 
-A Patient Similarity Network (PSN) is constructed using:
+---
 
-Cosine Similarity
-K-Nearest Neighbors (KNN)
-Graph Refinement
-4. Graph Learning
+## Methodology
 
-The fused patient graph is processed using Graph Neural Networks to capture inter-patient relationships.
+### 1. Multi-Omics Feature Extraction
 
-5. Classification
+```text
+mRNA ──► Autoencoder ──► Latent Features
+CNV  ──► Autoencoder ──► Latent Features
+RPPA ──► Autoencoder ──► Latent Features
+```
 
-The learned graph representations are used for cancer subtype prediction through a prototype-based classifier.
+### 2. Adaptive Fusion
 
-Project Structure
-AdaMOIC/
-│
-├── data/
-│   ├── BRCA/
-│   ├── LGG/
-│   └── KIPAN/
-│
-├── models/
-│   ├── autoencoder.py
-│   ├── graph_model.py
-│   └── classifier.py
-│
-├── utils/
-│   ├── preprocessing.py
-│   ├── graph_utils.py
-│   └── metrics.py
-│
-├── train.py
-├── evaluate.py
-├── requirements.txt
-└── README.md
-Installation
+Latent representations from multiple omics modalities are fused using an attention-based mechanism.
 
-Clone the repository:
+### 3. Patient Similarity Network
 
-git clone https://github.com/your-username/AdaMOIC.git
+Constructed using:
+
+- Cosine Similarity
+- K-Nearest Neighbors (KNN)
+- Graph Refinement
+
+### 4. Graph Learning
+
+Graph Neural Networks capture inter-patient biological relationships.
+
+### 5. Classification
+
+Prototype-based classifier predicts cancer subtypes.
+
+---
+
+## Installation
+
+```bash
+git clone https://github.com/vipulchetan25/AdaMOIC.git
 cd AdaMOIC
 
-Create a virtual environment:
-
-python -m venv venv
-
-Activate environment:
-
-Windows:
-
-venv\Scripts\activate
-
-Linux/Mac:
-
-source venv/bin/activate
-
-Install dependencies:
-
 pip install -r requirements.txt
-Training
+```
 
-Run model training:
+---
 
+## Training
+
+```bash
 python train.py
-Evaluation
+```
 
-Evaluate the trained model:
+---
 
+## Evaluation
+
+```bash
 python evaluate.py
-Experimental Results
-BRCA
-Metric	Score
-Accuracy	87.28%
-Balanced Accuracy	84.97%
-Macro F1 Score	85.26%
-Additional Datasets
+```
 
-The framework is also evaluated on:
+---
 
-LGG
-KIPAN
+## Experimental Results
 
-Performance varies according to dataset characteristics and subtype complexity.
+### BRCA Dataset
 
-Technologies Used
-Python
-PyTorch
-PyTorch Geometric
-NumPy
-Pandas
-Scikit-Learn
-Future Work
-GraphSAGE-based architecture exploration.
-Dynamic graph construction.
-Improved multi-modal attention mechanisms.
-Explainable AI for subtype prediction.
-Survival analysis integration.
-Citation
+| Metric | Score |
+|----------|----------|
+| Accuracy | 87.28% |
+| Balanced Accuracy | 84.97% |
+| Macro F1 Score | 85.26% |
 
-If you use this work in your research, please cite:
+### Additional Datasets
 
-@misc{adamoic2026,
-  title={AdaMOIC: Adaptive Multi-Omics Integration for Cancer Subtype Classification},
-  author={Vipul Chetan},
-  year={2026}
-}
-@misc{adamoic2026,
-  title={AdaMOIC: Adaptive Multi-Omics Integration for Cancer Subtype Classification},
-  author={T.Manoj},
-  year={2026}
-}
-License
+- LGG
+- KIPAN
 
-This project is released under the MIT License.
+---
+
+## Technologies Used
+
+- Python
+- PyTorch
+- PyTorch Geometric
+- NumPy
+- Pandas
+- Scikit-Learn
+
+---
+
+## Future Work
+
+- GraphSAGE-based architecture exploration
+- Dynamic graph construction
+- Explainable AI
+- Survival analysis integration
+
+---
+
+## Author
+
+**Vipul Chetan**  
+B.Tech CSE, IIIT Sri City
+
+**T.Manoj**
+B.Tech CSE,IIIT Sri City
+
+---
+
+## License
+
+This project is intended for academic and research purposes.
