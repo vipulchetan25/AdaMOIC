@@ -150,16 +150,14 @@ The proposed AdaMOIC framework was evaluated on multiple TCGA cancer datasets.
 
 ---
 
-## Author
+## Authors
 
-###Vipul Chetan 
+**Vipul Chetan**  
 B.Tech CSE, IIIT Sri City
 
-###T.Manoj
+**T. Manoj**  
 B.Tech CSE, IIIT Sri City
-
 ---
-
 ## License
 
 This project is intended for academic and research purposes.
