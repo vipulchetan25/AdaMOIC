@@ -1,0 +1,52 @@
+{
+  "matrix": [
+    [
+      109,
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      52,
+      0,
+      2
+    ],
+    [
+      0,
+      0,
+      235,
+      15
+    ],
+    [
+      0,
+      4,
+      16,
+      80
+    ]
+  ],
+  "labels": [
+    "Basal",
+    "Her2",
+    "LumA",
+    "LumB"
+  ],
+  "focused_pairs": {
+    "LumA_as_LumB": {
+      "count": 15,
+      "rate": 0.06
+    },
+    "LumB_as_LumA": {
+      "count": 16,
+      "rate": 0.16
+    },
+    "Her2_as_LumB": {
+      "count": 2,
+      "rate": 0.03636363636363636
+    },
+    "LumB_as_Her2": {
+      "count": 4,
+      "rate": 0.04
+    }
+  }
+}

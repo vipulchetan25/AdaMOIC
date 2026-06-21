@@ -1,0 +1,243 @@
+{
+  "config": {
+    "dataset": "BRCA",
+    "data_root": "data",
+    "out_dir": "outputs_BRCA_benchmark_holdout_seed404",
+    "random_state": 404,
+    "split_mode": "repeated_holdout",
+    "n_splits": 5,
+    "repeats": 5,
+    "test_size": 0.2,
+    "val_ratio": 0.15,
+    "ae_hidden_dim": 128,
+    "ae_latent_per_view": 64,
+    "fused_latent_dim": 128,
+    "ae_epochs": 120,
+    "ae_lr": 0.001,
+    "ae_activation": "relu",
+    "ae_dropout": 0.05,
+    "fusion_mode": "attention",
+    "brca_feature_select_k": 300,
+    "brca_feature_select_k_candidates": [
+      300
+    ],
+    "brca_feature_variance_threshold": 0.001,
+    "brca_gcn_hidden_dim_candidates": [
+      64
+    ],
+    "brca_gcn_dropout_candidates": [
+      0.1
+    ],
+    "brca_gcn_lr_candidates": [
+      0.001
+    ],
+    "brca_gcn_layers_candidates": [
+      2
+    ],
+    "hyperparam_search_epochs": 25,
+    "architecture": "brca_hybrid_dual_path",
+    "gcn_hidden_dim": 64,
+    "gcn_layers": 2,
+    "gcn_dropout": 0.1,
+    "gcn_alpha": 0.5,
+    "gcn_theta": 0.5,
+    "gcn_lr": 0.001,
+    "gcn_weight_decay": 0.0005,
+    "gcn_epochs": 300,
+    "patience": 35,
+    "direct_hidden_dim": 128,
+    "mlp_hidden_dim": 128,
+    "fusion_hidden_dim": 64,
+    "direct_dropout": 0.2,
+    "transformer_heads": 4,
+    "transformer_layers": 2,
+    "transformer_ff_dim": 192,
+    "transformer_tokens": 4,
+    "prototype_temperature": 0.7,
+    "dynamic_graph_refine": true,
+    "dynamic_graph_k": 5,
+    "dynamic_graph_blend": 0.05,
+    "class_weight_mode": "sqrt_inverse",
+    "label_smoothing": 0.1,
+    "min_final_epochs": 20,
+    "loss_type": "cross_entropy",
+    "focal_gamma": 1.5,
+    "use_cosine_annealing": false,
+    "classification_loss_weight": 1.0,
+    "contrastive_loss_weight": 0.15,
+    "contrastive_temperature": 0.2,
+    "contrastive_target_classes": [
+      "LumA",
+      "LumB",
+      "Her2"
+    ],
+    "lr_scheduler_patience": 10,
+    "lr_scheduler_factor": 0.5,
+    "early_stop_min_delta": 1e-05,
+    "ensemble_size": 5,
+    "graph_k_candidates": [
+      5
+    ],
+    "graph_similarity_threshold": 0.15,
+    "graph_self_loop": true,
+    "paper_metrics": null,
+    "save_plots": false
+  },
+  "architecture_summary": {
+    "dataset": "BRCA",
+    "architecture": "brca_hybrid_dual_path",
+    "autoencoder": {
+      "activation": "relu",
+      "dropout": 0.05,
+      "layer_norm": true,
+      "latent_per_view": 64,
+      "fused_latent_dim": 128,
+      "fusion_mode": "attention"
+    },
+    "graph": {
+      "base": "cosine similarity KNN",
+      "dynamic_refinement": true,
+      "graph_k_candidates": [
+        5
+      ],
+      "graph_threshold": 0.15,
+      "dynamic_blend": 0.05,
+      "self_loop": true
+    },
+    "brca_search": {
+      "feature_k_candidates": [
+        300
+      ],
+      "variance_threshold": 0.001,
+      "hidden_dim_candidates": [
+        64
+      ],
+      "dropout_candidates": [
+        0.1
+      ],
+      "lr_candidates": [
+        0.001
+      ],
+      "layers_candidates": [
+        2
+      ],
+      "hyperparam_search_epochs": 25
+    },
+    "classifier": {
+      "type": "brca_hybrid_dual_path",
+      "num_classes": 4,
+      "prototype_classifier": true
+    },
+    "losses": {
+      "classification": "cross_entropy",
+      "classification_weight": 1.0,
+      "focal_gamma": null,
+      "supervised_contrastive_weight": 0.15,
+      "supervised_contrastive_temperature": 0.2,
+      "supervised_contrastive_classes": [
+        "LumA",
+        "LumB",
+        "Her2"
+      ],
+      "class_weight_mode": "sqrt_inverse"
+    },
+    "training": {
+      "inner_validation": true,
+      "early_stopping": true,
+      "scheduler": "ReduceLROnPlateau",
+      "use_cosine_annealing": false,
+      "ensemble_size": 5
+    }
+  },
+  "num_samples": 511,
+  "num_evals": 5,
+  "accuracy_mean": 0.9242718446601941,
+  "accuracy_std": 0.016703544207849755,
+  "balanced_accuracy_mean": 0.9190909090909092,
+  "balanced_accuracy_std": 0.023160863969953947,
+  "macro_f1_mean": 0.9186382239487502,
+  "macro_f1_std": 0.019188224816995503,
+  "macro_precision_mean": 0.9234488089861179,
+  "macro_precision_std": 0.017441202790888705,
+  "macro_recall_mean": 0.9190909090909092,
+  "macro_recall_std": 0.023160863969953947,
+  "ae_time_sec_mean": 18.102104091644286,
+  "ae_time_sec_std": 6.757480776749576,
+  "gcn_time_sec_mean": 9.96388111114502,
+  "gcn_time_sec_std": 7.809444569551595,
+  "architecture_used": "brca_hybrid_dual_path",
+  "paper_comparison": {
+    "accuracy": {
+      "paper": null,
+      "current": 0.9242718446601941,
+      "delta": null
+    },
+    "macro_f1": {
+      "paper": null,
+      "current": 0.9186382239487502,
+      "delta": null
+    },
+    "macro_precision": {
+      "paper": null,
+      "current": 0.9234488089861179,
+      "delta": null
+    },
+    "macro_recall": {
+      "paper": null,
+      "current": 0.9190909090909092,
+      "delta": null
+    }
+  },
+  "brca_confusion_analysis": {
+    "matrix": [
+      [
+        109,
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        52,
+        0,
+        2
+      ],
+      [
+        0,
+        0,
+        235,
+        15
+      ],
+      [
+        0,
+        4,
+        16,
+        80
+      ]
+    ],
+    "labels": [
+      "Basal",
+      "Her2",
+      "LumA",
+      "LumB"
+    ],
+    "focused_pairs": {
+      "LumA_as_LumB": {
+        "count": 15,
+        "rate": 0.06
+      },
+      "LumB_as_LumA": {
+        "count": 16,
+        "rate": 0.16
+      },
+      "Her2_as_LumB": {
+        "count": 2,
+        "rate": 0.03636363636363636
+      },
+      "LumB_as_Her2": {
+        "count": 4,
+        "rate": 0.04
+      }
+    }
+  }
+}
