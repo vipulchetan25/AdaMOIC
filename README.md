@@ -105,21 +105,31 @@ python evaluate.py
 
 ## Experimental Results
 
-### BRCA Dataset
+The proposed AdaMOIC framework was evaluated on multiple TCGA cancer datasets.
 
-| Metric | Score |
+| Dataset | Accuracy (%) |
+|----------|-------------|
+| BRCA | 87.28 |
+| LGG | 73.50 |
+| KIPAN | 96.70 |
+
+### BRCA Detailed Metrics
+
+| Metric | Score (%) |
 |----------|----------|
-| Accuracy | 87.28% |
-| Balanced Accuracy | 84.97% |
-| Macro F1 Score | 85.26% |
+| Accuracy | 87.28 |
+| Balanced Accuracy | 84.97 |
+| Macro F1 Score | 85.26 |
 
-### Additional Datasets
-
-- LGG
-- KIPAN
 
 ---
 
+### Observations
+
+- KIPAN achieved the highest classification accuracy of **96.70%**, indicating strong separability among kidney cancer subtypes.
+- BRCA achieved **87.28%** accuracy despite the challenge of distinguishing similar luminal subtypes.
+- LGG achieved **73.50%** accuracy, reflecting the higher complexity and overlap among glioma subtypes.
+---
 ## Technologies Used
 
 - Python
